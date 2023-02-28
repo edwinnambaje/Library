@@ -13,17 +13,17 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "authorId",
         as: "books",
       });
-      // Author.belongsTo(models.Book, {
-      //   foreignKey: "bookId",
-      //   as: "books",
-      // });
+      Author.belongsTo(models.Book, {
+        foreignKey: "bookId",
+        as: "book",
+      });
     }
   }
   Author.init(
     {
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
-      bookId: DataTypes.STRING,
+      bookId: DataTypes.INTEGER,
     },
     {
       sequelize,

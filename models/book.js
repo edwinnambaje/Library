@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "authorId",
         as: "author",
       });
-      // Book.hasMany(models.Author, {
-      //   foreignKey: "bookId",
-      //   as: "books",
-      // });
+      Book.hasOne(models.Author, {
+        foreignKey: "bookId",
+        as: "authors",
+      });
     }
   }
   Book.init(
