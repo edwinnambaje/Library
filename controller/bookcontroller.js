@@ -30,9 +30,12 @@ exports.getSingleBook = async (req, res) => {
   res.json(books);
 };
 exports.getSingleUserBook = async (req, res) => {
-  const author = await Author.findByPk(req.params.id);
-  const books = await Book.findByPk(req.params.id, {
+  const author = req.params.id;
+  const books = await Book.findAll({
+    where: { authorId: author },
     include: [{ model: Author, as: "author" }],
   });
+  //   include: [{ model: Author, as: "author" }],
+  // });
   res.json(books);
 };

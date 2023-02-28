@@ -5,5 +5,5 @@ const bookController = require("../controller/bookcontroller");
 
 router.post("/create", bookController.createBook);
 router.get("/all", bookController.getBooks);
-router.get("/:id", bookController.getSingleBook);
+router.get("/user/:id", bookController.getSingleUserBook);
 module.exports = router;
